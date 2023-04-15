@@ -13,11 +13,11 @@ int main()
     faster;
     int n;
     cin >> n;
-    string s;
+    string s[n];
     int arr[n];
     for (int i = 0; i < n; i++)
     {
-        cin >> s;
+        cin >> s[i];
         cin >> arr[i];
     }
     sort(arr, arr + n, greater<int>());
