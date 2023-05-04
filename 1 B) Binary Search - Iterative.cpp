@@ -8,38 +8,46 @@ using namespace std;
 #define mod 1000000007
 typedef long long int ll;
 typedef unsigned long long int llu;
+int binary(int arr[], int n, int t, int pos)
+{
+
+    int l = 0, r = n - 1;
+    while (l <= r)
+    {
+        int mid = (l + r) / 2;
+        if (arr[mid] == pos)
+        {
+            return mid;
+        }
+        else if (arr[mid] > pos)
+        {
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
+        }
+    }
+    return -1;
+}
 int main()
 {
-    ll n, t;
+    faster;
+    int n, t;
     cin >> n >> t;
-    ll arr[n];
-    while (t--)
+    int arr[n];
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
+        cin >> arr[i];
+    }
+    for (int i = 0; i < t; i++)
+    {
         int pos;
-        int l = 0, r = n - 1;
         cin >> pos;
-        while (l <= r)
-        {
-            int mid = (l + r) / 2;
-            if (arr[mid] == pos)
-            {
-                cout << "YES" << endl;
-                return 0;
-            }
-            else if (arr[mid] > pos)
-            {
-                r = mid - 1;
-            }
-            else
-            {
-                l = mid + 1;
-            }
-        }
-        cout << "NO" << endl;
+        int result = binary(arr, n, t, pos);
+        if (result == -1)
+            cout << "NO" << endl;
+        else
+            cout << "YES" << endl;
     }
 }
-// aktu boste hobe
