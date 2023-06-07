@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-void insertNodeAtPosition(list<int> li, int t, int c, int d)
+void SinglyLinkedListNode(list<int> li, int t, int del)
 {
     list<int>::iterator it;
     it = li.begin();
-    advance(it, d);
-    li.insert(it, c);
+    advance(it, del);
+    li.erase(it);
     for (auto it : li)
+    {
         cout << it << " ";
+    }
     cout << endl;
 }
 int main()
@@ -21,7 +23,7 @@ int main()
         cin >> a;
         li.push_back(a);
     }
-    int value, position;
-    cin >> value >> position;
-    insertNodeAtPosition(li, t, value, position);
+    int del;
+    cin >> del;
+    SinglyLinkedListNode(li, t, del);
 }
