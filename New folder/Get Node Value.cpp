@@ -3,10 +3,22 @@ using namespace std;
 void SinglyLinkedListNode(list<int> li, int m)
 {
     li.reverse();
-    list<int>::iterator it;
-    it = li.begin();
-    advance(it, m);
-    
+    // list<int>::iterator it;
+    // it = li.begin();
+    // advance(it, m);
+    // list<int> li2;
+    // li.insert(it, m);
+    // for (auto it : li)
+    //     cout << it << endl;
+    int c = 0;
+    while (li.size() > 0)
+    {
+        c++;
+        if (m == c - 1)
+            break;
+        li.pop_front();
+    }
+    cout << li.front() << endl;
 }
 int main()
 {
