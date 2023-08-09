@@ -16,38 +16,44 @@ typedef unsigned long long int llu;
 #define len(a) sizeof(a)
 #define lc (n * 2)
 #define rc ((n * 2) + 1)
-void missingNumbers(int arr[], int arr2[], int n, int m)
+void gradingStudents(int n)
 {
-    sort(arr, arr + n);
-    sort(arr2, arr2 + m);
-    for (int i = 0; i < m; i++)
+    string ss, sss;
+    int s;
+    while (n--)
     {
-        for (int j = i; j <= i; j++)
+        cin >> s;
+        int q = s;
+        if (s > 37)
         {
-            if (arr[j] != arr2[i])
+            ss = to_string(s);
+            reverse(ss.begin(), ss.end());
+            sss = ss[0];
+            int k = stoi(sss);
+            if (k == 3 || k == 8)
             {
-                cout << arr2[i] << " ";
+                cout << q + 2 << endl;
+            }
+            else if (k == 4 || k == 9)
+            {
+                cout << q + 1 << endl;
             }
             else
             {
-                continue;
+                cout << q << endl;
             }
         }
+        else
+        {
+            cout << s << endl;
+        }
     }
-    cout << endl;
 }
 int main()
 {
     faster;
     int n;
     cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    int m;
-    cin >> m;
-    int arr2[m];
-    for (int i = 0; i < m; i++)
-        cin >> arr2[i];
-    missingNumbers(arr, arr2, n, m);
+    gradingStudents(n);
+    return 0;
 }
