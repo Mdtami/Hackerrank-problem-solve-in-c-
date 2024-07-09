@@ -27,6 +27,9 @@ int32_t main()
             if (a[i] == 0)
                 v.push_back(i);
         }
+        // for (auto x : v)
+        //     cout << x << ' ';
+        // cout << '\n';
 
         vector<ll> pre(n + 1, 0);
         for (int i = 1; i <= n; i++)
@@ -42,8 +45,10 @@ int32_t main()
             int l, r, x;
             cin >> l >> r >> x;
 
-            auto it = lower_bound(all(v), l);
-            auto it2 = upper_bound(all(v), r);
+            auto it = lower_bound(all(v), l) - v.begin();
+            auto it2 = upper_bound(all(v), r) - v.begin();
+            it++, it2++;
+            // cout << it << ' ' << it2 << '\n';
             ll count_zeros = it2 - it;
 
             ll ans = count_zeros * x;
